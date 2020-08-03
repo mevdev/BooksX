@@ -6,7 +6,6 @@
 //  Copyright © 2020 Robert Linnemann. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 struct Book: Codable {

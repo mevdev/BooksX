@@ -6,7 +6,6 @@
 //  Copyright © 2020 Robert Linnemann. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class BooksViewModel {
@@ -19,15 +18,15 @@ class BooksViewModel {
     func fetchBooks(completion: @escaping () -> Void) {
         let task = URLSession.shared.fetchCollectionTask(with: Constants.fetchURL) { booksXCollection, response, error in
             if let booksXCollection = booksXCollection {
-                print(booksXCollection.count)
+                self.books = booksXCollection
             }
             completion()
         }
         task.resume()
     }
     
-    func booksCountHeaderView() -> BooksCountHeaderView {
-        return BooksCountHeaderView()
+    func booksHeaderView() -> BooksHeaderView {
+        return BooksHeaderView(pdfsCount: books.count)
     }
 
 }

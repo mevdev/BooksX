@@ -19,7 +19,6 @@
 		8098F90E24D753760098B404 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8098F90D24D753760098B404 /* Book.swift */; };
 		8098F91124D7842E0098B404 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8098F91024D7842E0098B404 /* BooksViewController.swift */; };
 		8098F91424D787220098B404 /* BooksHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8098F91324D787220098B404 /* BooksHeaderView.swift */; };
-		8098F91724D787A90098B404 /* BooksCountHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8098F91624D787A90098B404 /* BooksCountHeaderView.swift */; };
 		8098F91924D7BB2B0098B404 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8098F91824D7BB2B0098B404 /* BooksViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +49,6 @@
 		8098F90D24D753760098B404 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		8098F91024D7842E0098B404 /* BooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
 		8098F91324D787220098B404 /* BooksHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksHeaderView.swift; sourceTree = "<group>"; };
-		8098F91624D787A90098B404 /* BooksCountHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCountHeaderView.swift; sourceTree = "<group>"; };
 		8098F91824D7BB2B0098B404 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				8098F91324D787220098B404 /* BooksHeaderView.swift */,
-				8098F91624D787A90098B404 /* BooksCountHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -277,7 +274,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8098F91724D787A90098B404 /* BooksCountHeaderView.swift in Sources */,
 				803DEE3224D691ED004E98B3 /* KGNAutoLayout.swift in Sources */,
 				8098F90E24D753760098B404 /* Book.swift in Sources */,
 				803DEE0524D66326004E98B3 /* AppDelegate.swift in Sources */,

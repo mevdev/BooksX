@@ -6,7 +6,6 @@
 //  Copyright © 2020 Robert Linnemann. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class BooksViewController: UIViewController {
@@ -15,12 +14,13 @@ class BooksViewController: UIViewController {
     
     let spinner = UIActivityIndicatorView()
     let collectionView: UICollectionView? = nil
-//    var countHeaderView: BooksCountHeaderView?
     
     override func viewDidLoad() {
         // load from network.
         self.viewModel.fetchBooks() {
-            self.showCollection()
+            DispatchQueue.main.async {
+                self.showCollection()
+            }
         }
         self.view.backgroundColor = .white
         self.showSpinner(true)
@@ -40,9 +40,13 @@ class BooksViewController: UIViewController {
     }
     
     func showCollection() {
-        // self.showSpinner(false)
-
-//        let countHeaderView = self.viewModel.booksCountHeaderView()
+        self.showSpinner(false)
+        let headerView = self.viewModel.booksHeaderView()
+        self.view.addSubview(headerView)
+        headerView.pinToTopEdgeOfSuperview(withOffset: self.view.safeAreaInsets.top)
+        headerView.pinToSideEdgesOfSuperview()
+        
+    // TODO: add collection view once data is available.
 //        self.view.addSubview(self.collectionView)
 //        self.collectionView.
     }
