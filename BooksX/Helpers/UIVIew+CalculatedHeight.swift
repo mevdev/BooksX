@@ -9,8 +9,10 @@
 import UIKit
 
 extension UIView {
+    
     func calculatedHeight() -> CGFloat {
         let viewCalculatedSize = self.systemLayoutSizeFitting(UIScreen.main.bounds.size)
         return viewCalculatedSize.height
     }
+    
 }

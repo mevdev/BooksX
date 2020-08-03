@@ -8,6 +8,8 @@
 
 import UIKit
 
+// TODO: add type here and in the json file
+
 struct Book: Codable {
     let title: String
     let coverImage: String?

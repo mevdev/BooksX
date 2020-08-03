@@ -9,8 +9,8 @@
 import UIKit
 
 class BookXCollectionCell: UICollectionViewCell {
-    static let reuseIdentifier = "BookXCollectionCell"
     
+    static let reuseIdentifier = "BookXCollectionCell"
     let coverImage = UIImageView()
     let progress = UILabel()
     let ellipses = UILabel()
@@ -44,4 +44,5 @@ class BookXCollectionCell: UICollectionViewCell {
     func book(_ book: Book) {
         // TODO: fill in the data
     }
+    
 }

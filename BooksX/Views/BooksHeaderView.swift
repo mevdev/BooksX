@@ -9,6 +9,7 @@
 import UIKit
 
 class BooksHeaderView: UIView {
+    
     var booksCount: Int = 0
     var audioBooksCount: Int = 0
     var pdfsCount: Int = 0
@@ -68,4 +69,5 @@ class BooksHeaderView: UIView {
         let labelPart = "\(count) \(typeName)"
         return count == 1 ? labelPart : labelPart + "s"
     }
+    
 }

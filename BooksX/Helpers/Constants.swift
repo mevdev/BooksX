@@ -9,6 +9,7 @@
 import UIKit
 
 struct Constants {
+    
     // MARK: Networking
     static let fetchURL = URL(string: "https://robertLinnemann.com/booksX/collection.json")!
     
@@ -30,4 +31,5 @@ struct Constants {
     
     // MARK: Copy
     static let collectionTitle = "Library"
+    
 }

@@ -9,6 +9,7 @@
 import UIKit
 
 class BooksViewModel {
+    
     private var books = [Book]()
     var booksCount: Int {
         return books.count
@@ -37,6 +38,7 @@ class BooksViewModel {
 // MARK: Networking extension
     
 extension URLSession {
+    
     fileprivate func codableTask<T: Codable>(with url: URL, completionHandler: @escaping (T?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
         return self.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {

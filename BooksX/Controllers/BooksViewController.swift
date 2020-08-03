@@ -19,6 +19,7 @@ class BooksViewController: UIViewController {
         flow.scrollDirection = .vertical
         return flow
     }
+    
     override func viewDidLoad() {
         // load from network.
         self.viewModel.fetchBooks() {
