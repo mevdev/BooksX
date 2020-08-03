@@ -41,7 +41,8 @@ class BooksHeaderView: UIView {
         self.addSubview(collectionInfoLabel)
         collectionInfoLabel.positionBelow(titleDivider, withOffset: Constants.padding)
         collectionInfoLabel.pinToSideEdgesOfSuperview(withOffset: Constants.padding)
-        _ = self.addDividerBelow(collectionInfoLabel)
+        let bottomDivider = self.addDividerBelow(collectionInfoLabel)
+        bottomDivider.pinToBottomEdgeOfSuperview()
     }
     
     private func addDividerBelow(_ view: UIView, padding: CGFloat = Constants.padding) -> UIView {

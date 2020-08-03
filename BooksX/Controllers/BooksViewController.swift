@@ -13,8 +13,12 @@ class BooksViewController: UIViewController {
     let viewModel = BooksViewModel()
     
     let spinner = UIActivityIndicatorView()
-    let collectionView: UICollectionView? = nil
-    
+    lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.flowLayout)
+    var flowLayout: UICollectionViewFlowLayout {
+        let flow = UICollectionViewFlowLayout()
+        flow.scrollDirection = .vertical
+        return flow
+    }
     override func viewDidLoad() {
         // load from network.
         self.viewModel.fetchBooks() {
@@ -45,10 +49,16 @@ class BooksViewController: UIViewController {
         self.view.addSubview(headerView)
         headerView.pinToTopEdgeOfSuperview(withOffset: self.view.safeAreaInsets.top)
         headerView.pinToSideEdgesOfSuperview()
-        
-    // TODO: add collection view once data is available.
-//        self.view.addSubview(self.collectionView)
-//        self.collectionView.
+
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
+        self.collectionView.backgroundColor = .white
+        self.collectionView.alwaysBounceVertical = true
+        self.collectionView.register(BookXCollectionCell.self, forCellWithReuseIdentifier: BookXCollectionCell.reuseIdentifier)
+        self.view.addSubview(self.collectionView)
+        self.collectionView.positionBelow(headerView, withOffset: Constants.paddingSmall)
+        self.collectionView.pinToBottomEdgeOfSuperview(withOffset: self.view.safeAreaInsets.bottom)
+        self.collectionView.pinToSideEdgesOfSuperview()
     }
     
 }
@@ -59,14 +69,26 @@ extension BooksViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: BookXCollectionCell.reuseIdentifier, for: indexPath) as! BookXCollectionCell
+        if let book = self.viewModel.bookAt(index: indexPath.item) {
+            cell.book(book)
+        }
+        return cell
     }
-    
     
 }
 
 extension BooksViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // TODO: transition to reader View Controller.
+        print("\(indexPath.item) tapped")
     }
+    
+}
+
+extension BooksViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: Constants.cellWidth, height: Constants.cellHeight)
+    }
+
 }

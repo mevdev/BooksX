@@ -24,6 +24,10 @@ struct Constants {
     static let colorSubTitle: UIColor = .gray
     static let colorDivider: UIColor = .lightGray
     
+    static let cellHeight: CGFloat = 225.0
+    static let cellWidth: CGFloat = 180.0
+    static let coverDefault: String = "defaultCover"
+    
     // MARK: Copy
     static let collectionTitle = "Library"
 }

@@ -9,10 +9,13 @@
 import UIKit
 
 class BooksViewModel {
-    
     private var books = [Book]()
     var booksCount: Int {
         return books.count
+    }
+
+    func bookAt(index: Int) -> Book? {
+        return self.books[index]
     }
     
     func fetchBooks(completion: @escaping () -> Void) {
