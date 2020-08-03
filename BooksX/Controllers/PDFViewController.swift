@@ -13,7 +13,7 @@ import PDFKit
 class PDFViewController: UIViewController {
     
     init(pdf: String) {
-        // injection of the pdf file for this VC.
+        // TODO: injection of the pdf file for this VC.
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -23,6 +23,8 @@ class PDFViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // TODO: make a header to get back...navController has none.
         
         let pdfContainerView = PDFView(frame: self.view.bounds)
         pdfContainerView.autoresizingMask = [.flexibleHeight, .flexibleWidth]

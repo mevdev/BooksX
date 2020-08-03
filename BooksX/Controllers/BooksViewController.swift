@@ -12,7 +12,6 @@ import UIKit
 class BooksViewController: UIViewController {
     
     let viewModel = BooksViewModel()
-//    var booksData = [Book]() // This will be a view model
     
     let spinner = UIActivityIndicatorView()
     let collectionView: UICollectionView? = nil
@@ -63,5 +62,7 @@ extension BooksViewController: UICollectionViewDataSource {
 }
 
 extension BooksViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // TODO: transition to reader View Controller.
+    }
 }
