@@ -30,7 +30,11 @@ class BooksViewModel {
     }
     
     func booksHeaderView() -> BooksHeaderView {
-        return BooksHeaderView(pdfsCount: books.count)
+        return BooksHeaderView(
+            booksCount: self.books.filter({$0.bookType == .ebook}).count,
+            audioBooksCount: self.books.filter({$0.bookType == .audiobook}).count,
+            pdfsCount: self.books.filter({$0.bookType == .pdf}).count
+        )
     }
 
 }
