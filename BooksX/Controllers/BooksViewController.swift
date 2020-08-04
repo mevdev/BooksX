@@ -6,6 +6,7 @@
 //  Copyright © 2020 Robert Linnemann. All rights reserved.
 //
 
+import AVKit
 import UIKit
 
 class BooksViewController: UIViewController {
@@ -83,6 +84,19 @@ extension BooksViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // TODO: transition to reader View Controller.
         print("\(indexPath.item) tapped")
+        
+        // TODO: refactor this to somewhere else, maybe make an audio player VC.
+        if let bookSelected = self.viewModel.bookAt(index: indexPath.item),
+            bookSelected.bookType == .audiobook,
+            let audioFilePath = bookSelected.file,
+            let audioBookURL = URL(string: audioFilePath) {
+                let player = AVPlayer(url: audioBookURL)
+                let vc = AVPlayerViewController()
+                vc.player = player
+                present(vc, animated: true) {
+                    vc.player?.play()
+                }
+        }
     }
     
 }

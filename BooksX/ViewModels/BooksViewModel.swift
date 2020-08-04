@@ -28,7 +28,7 @@ class BooksViewModel {
         }
         task.resume()
     }
-    
+
     func booksHeaderView() -> BooksHeaderView {
         return BooksHeaderView(
             booksCount: self.books.filter({$0.bookType == .ebook}).count,

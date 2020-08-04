@@ -11,6 +11,9 @@ import UIKit
 class BookXCollectionCell: UICollectionViewCell {
     
     static let reuseIdentifier = "BookXCollectionCell"
+    
+    var book: Book? = nil
+    
     let coverImage = UIImageView()
     let progress = UILabel()
     let ellipses = UILabel()
@@ -25,7 +28,7 @@ class BookXCollectionCell: UICollectionViewCell {
     }
     
     func layoutCell() {
-        // 250h x 200w
+        coverImage.contentMode = .scaleAspectFit
         self.size(toHeight: Constants.cellHeight)
         self.size(toWidth: Constants.cellWidth)
 
@@ -42,7 +45,26 @@ class BookXCollectionCell: UICollectionViewCell {
     }
     
     func book(_ book: Book) {
-        // TODO: fill in the data
+        self.book = book
+        self.fillCellWithCurrentData()
     }
     
+    func fillCellWithCurrentData() {
+        // TODO: fill out and account for nil state
+        // TODO: download image to concurrent queue
+
+        if self.book?.bookType == .audiobook {
+            // TODO: make tint color black.
+            self.coverImage.image = UIImage(systemName: "speaker.2.fill")
+        } else {
+            self.coverImage.image = UIImage(imageLiteralResourceName: Constants.coverDefault)
+        }
+    }
+    
+    override func prepareForReuse() {
+        self.book = nil
+        self.fillCellWithCurrentData()
+        super.prepareForReuse()
+    }
+
 }
