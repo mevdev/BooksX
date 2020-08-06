@@ -30,6 +30,12 @@ class BooksViewController: UIViewController {
         }
         self.view.backgroundColor = .white
         self.showSpinner(true)
+        super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        super.viewWillAppear(animated)
     }
     
     // MARK: Show / Hide
@@ -81,22 +87,40 @@ extension BooksViewController: UICollectionViewDataSource {
 }
 
 extension BooksViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: transition to reader View Controller.
-        print("\(indexPath.item) tapped")
-        
-        // TODO: refactor this to somewhere else, maybe make an audio player VC.
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {        
         if let bookSelected = self.viewModel.bookAt(index: indexPath.item),
-            bookSelected.bookType == .audiobook,
-            let audioFilePath = bookSelected.file,
-            let audioBookURL = URL(string: audioFilePath) {
-                let player = AVPlayer(url: audioBookURL)
-                let vc = AVPlayerViewController()
-                vc.player = player
-                present(vc, animated: true) {
-                    vc.player?.play()
-                }
+            let onlinePath = bookSelected.file,
+            let onlineURL = URL(string: onlinePath) {
+            // TODO: refactor this to somewhere else, maybe make an audio player VC.
+            if bookSelected.bookType == .audiobook {
+                self.transitionToAudioListener(url: onlineURL, title: bookSelected.title)
+            } else if bookSelected.bookType == .pdf || bookSelected.bookType == .ebook {
+                self.transitionToPDFViewer(url: onlineURL, title: bookSelected.title)
+            }
+        } else {
+            // TODO: error
+            print("\(indexPath.item) tapped and no file was there, or item doesn't exist")
         }
+    }
+    
+    // MARK: ViewController Transitions
+    
+    func transitionToPDFViewer(url: URL, title: String) {
+        // TODO: show a loading spinner, it is streaming the file in.
+        // TODO: cache file and if invoked again, show cached version.
+        let pdfViewVC = PDFViewController(bookURL: url)
+        pdfViewVC.title = title
+        self.navigationController?.pushViewController(pdfViewVC, animated: true)
+    }
+    
+    func transitionToAudioListener(url: URL, title: String) {
+        let player = AVPlayer(url: url)
+        let vc = AVPlayerViewController()
+        vc.title = title
+        vc.player = player
+        vc.player?.play()
+        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
 }

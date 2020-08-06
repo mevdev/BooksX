@@ -52,13 +52,13 @@ class BookXCollectionCell: UICollectionViewCell {
     func fillCellWithCurrentData() {
         // TODO: fill out and account for nil state
         // TODO: download image to concurrent queue
-
         if self.book?.bookType == .audiobook {
             // TODO: make tint color black.
             self.coverImage.image = UIImage(systemName: "speaker.2.fill")
         } else {
             self.coverImage.image = UIImage(imageLiteralResourceName: Constants.coverDefault)
         }
+        self.downloadImage(self.book?.coverImage)
     }
     
     override func prepareForReuse() {
@@ -67,4 +67,17 @@ class BookXCollectionCell: UICollectionViewCell {
         super.prepareForReuse()
     }
 
+    func downloadImage(_ onlineURL: String?) {
+        // TODO: cache image and hit cache first
+        if let validURL = onlineURL,
+            let url = URL(string: validURL) {
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if let data = data {
+                    DispatchQueue.main.async { [weak self] in
+                        self?.coverImage.image = UIImage(data: data)
+                    }
+                }
+            }.resume()
+        }
+    }
 }

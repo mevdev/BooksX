@@ -11,12 +11,14 @@ I am an iOS Developer. This is demonstration code.
 - [x] Layout Header with info from JSON file
 - [x] Show temp data in Collection View
 - [x] Create Constants for any Design values
-- [ ] Make network request for cover images concurrently
-- [ ] Create cache for cover images
+- [x] Play audiobook in simple AVPlayerVC
+- [x] Make network request for cover images
 - [ ] Write Unit tests for ViewModel
 - [ ] Write UI tests
 - [ ] Download PDFs from network to local storage
-- [ ] Open PDF in PDFView from Collection View
+- [x] Open PDF in PDFView from Collection View
+- [ ] Cache PDFs
+- [ ] Create cache for cover images
 - [ ] Manage Cached Books on disk
 
 

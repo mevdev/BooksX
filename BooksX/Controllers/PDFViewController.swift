@@ -11,8 +11,10 @@ import PDFKit
 
 class PDFViewController: UIViewController {
     
-    init(pdf: String) {
-        // TODO: injection of the pdf file for this VC.
+    let bookURL: URL
+    
+    init(bookURL: URL) {
+        self.bookURL = bookURL
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -22,13 +24,13 @@ class PDFViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // TODO: make a header to get back...navController has none.
-        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.title = "asdf"
         let pdfContainerView = PDFView(frame: self.view.bounds)
         pdfContainerView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.view.addSubview(pdfContainerView)
         pdfContainerView.pinToEdgesOfSuperview()
+        let doc = PDFDocument(url: self.bookURL)
+        pdfContainerView.document = doc
     }
-    
 }
