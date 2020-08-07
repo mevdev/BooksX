@@ -10,9 +10,9 @@ import AVKit
 import UIKit
 
 class BooksViewController: UIViewController {
-    
-    let viewModel = BooksViewModel()
-    
+
+    let viewModel: BooksViewModel
+
     let spinner = UIActivityIndicatorView()
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.flowLayout)
     var flowLayout: UICollectionViewFlowLayout {
@@ -20,18 +20,17 @@ class BooksViewController: UIViewController {
         flow.scrollDirection = .vertical
         return flow
     }
-    
-    override func viewDidLoad() {
-        // load from network.
-        self.viewModel.fetchBooks() {
-            DispatchQueue.main.async {
-                self.showCollection()
-            }
-        }
-        self.view.backgroundColor = .white
-        self.showSpinner(true)
-        super.viewDidLoad()
+
+    init(viewModel: BooksViewModel = BooksViewModel()) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
     }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: Lifecycle Methods
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)

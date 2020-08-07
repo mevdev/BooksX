@@ -16,7 +16,11 @@ class BooksViewModel {
     }
 
     func bookAt(index: Int) -> Book? {
-        return self.books[index]
+        var selectedBook: Book? = nil
+        if self.books.indices.contains(index) {
+            selectedBook = self.books[index]
+        }
+        return selectedBook
     }
     
     func fetchBooks(completion: @escaping () -> Void) {
