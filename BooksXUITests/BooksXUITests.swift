@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import BooksX
 
 class BooksXUITests: XCTestCase {
 

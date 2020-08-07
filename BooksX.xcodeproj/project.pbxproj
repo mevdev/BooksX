@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8015EC2D24D7E30B00CCCC01 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8015EC2C24D7E30B00CCCC01 /* Constants.swift */; };
 		8015EC2F24D7F39800CCCC01 /* BookXCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8015EC2E24D7F39800CCCC01 /* BookXCollectionCell.swift */; };
-		8015EC3124D80A9C00CCCC01 /* UIVIew+CalculatedHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8015EC3024D80A9C00CCCC01 /* UIVIew+CalculatedHeight.swift */; };
 		803DEE0524D66326004E98B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803DEE0424D66326004E98B3 /* AppDelegate.swift */; };
 		803DEE0724D66326004E98B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803DEE0624D66326004E98B3 /* SceneDelegate.swift */; };
 		803DEE0E24D66327004E98B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 803DEE0D24D66327004E98B3 /* Assets.xcassets */; };
@@ -23,6 +22,7 @@
 		8098F91124D7842E0098B404 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8098F91024D7842E0098B404 /* BooksViewController.swift */; };
 		8098F91424D787220098B404 /* BooksHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8098F91324D787220098B404 /* BooksHeaderView.swift */; };
 		8098F91924D7BB2B0098B404 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8098F91824D7BB2B0098B404 /* BooksViewModel.swift */; };
+		809D5B2424DD3DF80039A21F /* URLSession+BooksX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D5B2324DD3DF80039A21F /* URLSession+BooksX.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,6 @@
 /* Begin PBXFileReference section */
 		8015EC2C24D7E30B00CCCC01 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8015EC2E24D7F39800CCCC01 /* BookXCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookXCollectionCell.swift; sourceTree = "<group>"; };
-		8015EC3024D80A9C00CCCC01 /* UIVIew+CalculatedHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+CalculatedHeight.swift"; sourceTree = "<group>"; };
 		803DEE0124D66326004E98B3 /* BooksX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BooksX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		803DEE0424D66326004E98B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		803DEE0624D66326004E98B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +64,7 @@
 		8098F91024D7842E0098B404 /* BooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
 		8098F91324D787220098B404 /* BooksHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksHeaderView.swift; sourceTree = "<group>"; };
 		8098F91824D7BB2B0098B404 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
+		809D5B2324DD3DF80039A21F /* URLSession+BooksX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+BooksX.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +152,6 @@
 			children = (
 				803DEE3124D691ED004E98B3 /* KGNAutoLayout.swift */,
 				8015EC2C24D7E30B00CCCC01 /* Constants.swift */,
-				8015EC3024D80A9C00CCCC01 /* UIVIew+CalculatedHeight.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -196,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				8098F91824D7BB2B0098B404 /* BooksViewModel.swift */,
+				809D5B2324DD3DF80039A21F /* URLSession+BooksX.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -340,7 +340,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				803DEE3224D691ED004E98B3 /* KGNAutoLayout.swift in Sources */,
-				8015EC3124D80A9C00CCCC01 /* UIVIew+CalculatedHeight.swift in Sources */,
 				8015EC2F24D7F39800CCCC01 /* BookXCollectionCell.swift in Sources */,
 				8098F90E24D753760098B404 /* Book.swift in Sources */,
 				803DEE0524D66326004E98B3 /* AppDelegate.swift in Sources */,
@@ -349,6 +348,7 @@
 				803DEE0724D66326004E98B3 /* SceneDelegate.swift in Sources */,
 				803DEE2724D6635F004E98B3 /* PDFViewController.swift in Sources */,
 				8098F91924D7BB2B0098B404 /* BooksViewModel.swift in Sources */,
+				809D5B2424DD3DF80039A21F /* URLSession+BooksX.swift in Sources */,
 				8098F91124D7842E0098B404 /* BooksViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -32,6 +32,18 @@ class BooksViewController: UIViewController {
 
     // MARK: Lifecycle Methods
     
+    override func viewDidLoad() {
+        // load from network.
+        self.viewModel.fetchBooks() {
+            DispatchQueue.main.async {
+                self.showCollection()
+            }
+        }
+        self.view.backgroundColor = .white
+        self.showSpinner(true)
+        super.viewDidLoad()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         super.viewWillAppear(animated)
