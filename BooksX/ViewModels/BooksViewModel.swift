@@ -10,9 +10,13 @@ import UIKit
 
 class BooksViewModel {
     
-    private var books = [Book]()
+    private var books: [Book]
     var booksCount: Int {
         return books.count
+    }
+    
+    init(books: [Book] = [Book]()) {
+        self.books = books
     }
 
     func bookAt(index: Int) -> Book? {
