@@ -17,6 +17,8 @@
 		803DEE2724D6635F004E98B3 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803DEE2624D6635F004E98B3 /* PDFViewController.swift */; };
 		803DEE2A24D66456004E98B3 /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 803DEE2924D66456004E98B3 /* PDFKit.framework */; };
 		803DEE3224D691ED004E98B3 /* KGNAutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803DEE3124D691ED004E98B3 /* KGNAutoLayout.swift */; };
+		806DE9E324EDA61F00E7A047 /* PDFViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806DE9E224EDA61F00E7A047 /* PDFViewModel.swift */; };
+		806DE9E524EDAB6600E7A047 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806DE9E424EDAB6600E7A047 /* BasicViewController.swift */; };
 		807D787F24DD2946003748E1 /* BooksViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D787E24DD2946003748E1 /* BooksViewModelTests.swift */; };
 		8098F90E24D753760098B404 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8098F90D24D753760098B404 /* Book.swift */; };
 		8098F91124D7842E0098B404 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8098F91024D7842E0098B404 /* BooksViewController.swift */; };
@@ -57,6 +59,8 @@
 		803DEE2624D6635F004E98B3 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		803DEE2924D66456004E98B3 /* PDFKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PDFKit.framework; path = System/Library/Frameworks/PDFKit.framework; sourceTree = SDKROOT; };
 		803DEE3124D691ED004E98B3 /* KGNAutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGNAutoLayout.swift; sourceTree = "<group>"; };
+		806DE9E224EDA61F00E7A047 /* PDFViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewModel.swift; sourceTree = "<group>"; };
+		806DE9E424EDAB6600E7A047 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		807D787424DD2931003748E1 /* BooksXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BooksXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		807D787824DD2931003748E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		807D787E24DD2946003748E1 /* BooksViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModelTests.swift; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 			children = (
 				8098F91024D7842E0098B404 /* BooksViewController.swift */,
 				803DEE2624D6635F004E98B3 /* PDFViewController.swift */,
+				806DE9E424EDAB6600E7A047 /* BasicViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				8098F91824D7BB2B0098B404 /* BooksViewModel.swift */,
+				806DE9E224EDA61F00E7A047 /* PDFViewModel.swift */,
 				809D5B2324DD3DF80039A21F /* URLSession+BooksX.swift */,
 			);
 			path = ViewModels;
@@ -348,8 +354,10 @@
 				803DEE0724D66326004E98B3 /* SceneDelegate.swift in Sources */,
 				803DEE2724D6635F004E98B3 /* PDFViewController.swift in Sources */,
 				8098F91924D7BB2B0098B404 /* BooksViewModel.swift in Sources */,
+				806DE9E524EDAB6600E7A047 /* BasicViewController.swift in Sources */,
 				809D5B2424DD3DF80039A21F /* URLSession+BooksX.swift in Sources */,
 				8098F91124D7842E0098B404 /* BooksViewController.swift in Sources */,
+				806DE9E324EDA61F00E7A047 /* PDFViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

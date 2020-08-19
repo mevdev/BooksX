@@ -9,11 +9,10 @@
 import AVKit
 import UIKit
 
-class BooksViewController: UIViewController {
+class BooksViewController: BasicViewController {
 
     let viewModel: BooksViewModel
 
-    let spinner = UIActivityIndicatorView()
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.flowLayout)
     var flowLayout: UICollectionViewFlowLayout {
         let flow = UICollectionViewFlowLayout()
@@ -50,17 +49,6 @@ class BooksViewController: UIViewController {
     }
     
     // MARK: Show / Hide
-    
-    func showSpinner(_ show: Bool) {
-        if show {
-            self.view.addSubview(self.spinner)
-            self.spinner.centerInSuperview()
-            self.spinner.startAnimating()
-        } else {
-            self.spinner.stopAnimating()
-            self.spinner.removeFromSuperview()
-        }
-    }
     
     func showCollection() {
         self.showSpinner(false)
@@ -119,6 +107,7 @@ extension BooksViewController: UICollectionViewDelegate {
     func transitionToPDFViewer(url: URL, title: String) {
         // TODO: show a loading spinner, it is streaming the file in.
         // TODO: cache file and if invoked again, show cached version.
+        
         let pdfViewVC = PDFViewController(bookURL: url)
         pdfViewVC.title = title
         self.navigationController?.pushViewController(pdfViewVC, animated: true)

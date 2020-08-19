@@ -13,9 +13,10 @@ I am an iOS Developer. This is demonstration code.
 - [x] Create Constants for any Design values
 - [x] Play audiobook in simple AVPlayerVC
 - [x] Make network request for cover images
-- [ ] Write Unit tests for ViewModel
+- [x] Write Unit tests for ViewModel
+- [ ] Mock URLProtocol for UI  tests
 - [ ] Write UI tests
-- [ ] Download PDFs from network to local storage
+- [x] Download PDFs from network to local storage
 - [x] Open PDF in PDFView from Collection View
 - [ ] Cache PDFs
 - [ ] Create cache for cover images
