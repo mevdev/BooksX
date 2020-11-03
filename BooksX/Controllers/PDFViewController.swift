@@ -8,11 +8,13 @@
 
 import UIKit
 import PDFKit
+import Combine
 
 class PDFViewController: BasicViewController {
     
     let bookURL: URL
     let viewModel = PDFViewModel()
+    var cancellable: Cancellable?
     
     init(bookURL: URL) {
         self.bookURL = bookURL
@@ -28,6 +30,12 @@ class PDFViewController: BasicViewController {
         self.view.backgroundColor = .white
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.title = "asdf"
+
+        cancellable = self.viewModel.$percentageComplete
+            .sink() {
+                print("progress: ", $0)
+        }
+        
         self.viewModel.fetchPPDFFile(self.bookURL) { [weak self] (pdfData) in
             DispatchQueue.main.async {
                 if let pdfData = pdfData {

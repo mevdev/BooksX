@@ -10,6 +10,13 @@ import Foundation
 
 class PDFViewModel {
     
+    private var observation: NSKeyValueObservation?
+    @Published var percentageComplete: Double = 0.0
+    
+    deinit {
+      observation?.invalidate()
+    }
+    
     func fetchPPDFFile(_ url: URL, session: URLSession = URLSession.shared, completion: @escaping (_: Data?) -> Void) {
 
         if url.isFileURL == false {
@@ -29,6 +36,9 @@ class PDFViewModel {
                     completion(nil)
                 }
         }
+        observation = task.progress.observe(\.fractionCompleted) { progress, _ in
+            self.percentageComplete = progress.fractionCompleted
+            }
         task.resume()
     }
     
