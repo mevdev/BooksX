@@ -17,7 +17,9 @@ class BasicViewController: UIViewController {
     func showSpinner(_ show: Bool) {
         if show {
             self.view.addSubview(self.spinner)
-            self.spinner.centerInSuperview()
+            self.spinner.translatesAutoresizingMaskIntoConstraints = false
+            self.spinner.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+            self.spinner.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
             self.spinner.startAnimating()
         } else {
             self.spinner.stopAnimating()

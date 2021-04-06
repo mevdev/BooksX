@@ -29,8 +29,9 @@ class BookXCollectionCell: UICollectionViewCell {
     
     func layoutCell() {
         coverImage.contentMode = .scaleAspectFit
-        self.size(toHeight: Constants.cellHeight)
-        self.size(toWidth: Constants.cellWidth)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.heightAnchor.constraint(equalToConstant: Constants.cellHeight).isActive = true
+        self.widthAnchor.constraint(equalToConstant: Constants.cellWidth).isActive = true
 
         self.coverImage.image = UIImage(imageLiteralResourceName: Constants.coverDefault)
         self.addSubview(self.coverImage)
@@ -39,9 +40,11 @@ class BookXCollectionCell: UICollectionViewCell {
         self.coverImage.layer.shadowOffset = .zero
         self.coverImage.layer.shadowRadius = 6
         // TODO: this should actually be bottom-aligned.
-        self.coverImage.pinToTopEdgeOfSuperview(withOffset: Constants.padding)
-        self.coverImage.pinToSideEdgesOfSuperview(withOffset: Constants.padding)
-        self.coverImage.pinToBottomEdgeOfSuperview(withOffset: Constants.padding)
+        self.coverImage.translatesAutoresizingMaskIntoConstraints = false
+        self.coverImage.topAnchor.constraint(equalTo: self.topAnchor, constant: Constants.padding).isActive = true
+        self.coverImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: Constants.padding).isActive = true
+        self.coverImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.padding).isActive = true
+        self.coverImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: Constants.padding).isActive = true
     }
     
     func book(_ book: Book) {

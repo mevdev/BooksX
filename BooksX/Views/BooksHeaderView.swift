@@ -19,6 +19,7 @@ class BooksHeaderView: UIView {
         self.audioBooksCount = audioBooksCount
         self.pdfsCount = pdfsCount
         super.init(frame: .zero)
+        self.translatesAutoresizingMaskIntoConstraints = false
         self.layoutElements()
     }
     
@@ -31,8 +32,10 @@ class BooksHeaderView: UIView {
         title.text = Constants.collectionTitle
         title.font = UIFont(name: Constants.fontNameTitle, size: Constants.fontHeightTitle)
         self.addSubview(title)
-        title.pinToTopEdgeOfSuperview(withOffset: Constants.paddingLarge)
-        title.pinToSideEdgesOfSuperview(withOffset: Constants.padding)
+        title.translatesAutoresizingMaskIntoConstraints  = false
+        title.topAnchor.constraint(equalTo: self.topAnchor, constant: Constants.paddingLarge).isActive = true
+        title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.padding).isActive = true
+        title.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: Constants.padding).isActive = true
         let titleDivider = addDividerBelow(title, padding: Constants.paddingSmall)
         
         let collectionInfoLabel = UILabel()
@@ -40,19 +43,25 @@ class BooksHeaderView: UIView {
         collectionInfoLabel.textColor = Constants.colorSubTitle
         collectionInfoLabel.text = self.collectionInfoText()
         self.addSubview(collectionInfoLabel)
-        collectionInfoLabel.positionBelow(titleDivider, withOffset: Constants.padding)
-        collectionInfoLabel.pinToSideEdgesOfSuperview(withOffset: Constants.padding)
+        
+        collectionInfoLabel.translatesAutoresizingMaskIntoConstraints = false
+        collectionInfoLabel.topAnchor.constraint(equalTo: titleDivider.bottomAnchor, constant: Constants.padding).isActive = true
+        collectionInfoLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.padding).isActive = true
+        collectionInfoLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: Constants.padding).isActive = true
+
         let bottomDivider = self.addDividerBelow(collectionInfoLabel)
-        bottomDivider.pinToBottomEdgeOfSuperview()
+        bottomDivider.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
     
     private func addDividerBelow(_ view: UIView, padding: CGFloat = Constants.padding) -> UIView {
         let divider = UIView(frame: .zero)
         divider.backgroundColor = Constants.colorDivider
-        divider.size(toHeight: 1.0)
         self.addSubview(divider)
-        divider.pinToSideEdgesOfSuperview(withOffset: Constants.padding)
-        divider.positionBelow(view, withOffset: padding)
+        divider.translatesAutoresizingMaskIntoConstraints = false
+        divider.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
+        divider.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.padding).isActive = true
+        divider.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: Constants.padding).isActive = true
+        divider.topAnchor.constraint(equalTo: view.bottomAnchor, constant: padding).isActive = true
         return divider
     }
 

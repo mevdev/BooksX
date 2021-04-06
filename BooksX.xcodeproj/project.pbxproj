@@ -16,7 +16,6 @@
 		803DEE1C24D66327004E98B3 /* BooksXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803DEE1B24D66327004E98B3 /* BooksXUITests.swift */; };
 		803DEE2724D6635F004E98B3 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803DEE2624D6635F004E98B3 /* PDFViewController.swift */; };
 		803DEE2A24D66456004E98B3 /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 803DEE2924D66456004E98B3 /* PDFKit.framework */; };
-		803DEE3224D691ED004E98B3 /* KGNAutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803DEE3124D691ED004E98B3 /* KGNAutoLayout.swift */; };
 		806DE9E324EDA61F00E7A047 /* PDFViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806DE9E224EDA61F00E7A047 /* PDFViewModel.swift */; };
 		806DE9E524EDAB6600E7A047 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806DE9E424EDAB6600E7A047 /* BasicViewController.swift */; };
 		807D787F24DD2946003748E1 /* BooksViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D787E24DD2946003748E1 /* BooksViewModelTests.swift */; };
@@ -58,7 +57,6 @@
 		803DEE1D24D66327004E98B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		803DEE2624D6635F004E98B3 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		803DEE2924D66456004E98B3 /* PDFKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PDFKit.framework; path = System/Library/Frameworks/PDFKit.framework; sourceTree = SDKROOT; };
-		803DEE3124D691ED004E98B3 /* KGNAutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGNAutoLayout.swift; sourceTree = "<group>"; };
 		806DE9E224EDA61F00E7A047 /* PDFViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewModel.swift; sourceTree = "<group>"; };
 		806DE9E424EDAB6600E7A047 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		807D787424DD2931003748E1 /* BooksXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BooksXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,7 +152,6 @@
 		803DEE3024D690F3004E98B3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				803DEE3124D691ED004E98B3 /* KGNAutoLayout.swift */,
 				8015EC2C24D7E30B00CCCC01 /* Constants.swift */,
 			);
 			path = Helpers;
@@ -345,7 +342,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				803DEE3224D691ED004E98B3 /* KGNAutoLayout.swift in Sources */,
 				8015EC2F24D7F39800CCCC01 /* BookXCollectionCell.swift in Sources */,
 				8098F90E24D753760098B404 /* Book.swift in Sources */,
 				803DEE0524D66326004E98B3 /* AppDelegate.swift in Sources */,

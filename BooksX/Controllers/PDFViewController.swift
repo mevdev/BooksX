@@ -53,7 +53,11 @@ class PDFViewController: BasicViewController {
         let pdfContainerView = PDFView(frame: self.view.bounds)
         pdfContainerView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.view.addSubview(pdfContainerView)
-        pdfContainerView.pinToEdgesOfSuperview()
+        pdfContainerView.translatesAutoresizingMaskIntoConstraints = false
+        pdfContainerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        pdfContainerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        pdfContainerView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        pdfContainerView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         let doc = PDFDocument(data: pdfData)
         pdfContainerView.document = doc
     }

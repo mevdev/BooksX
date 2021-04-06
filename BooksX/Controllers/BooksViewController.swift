@@ -54,8 +54,10 @@ class BooksViewController: BasicViewController {
         self.showSpinner(false)
         let headerView = self.viewModel.booksHeaderView()
         self.view.addSubview(headerView)
-        headerView.pinToTopEdgeOfSuperview(withOffset: self.view.safeAreaInsets.top)
-        headerView.pinToSideEdgesOfSuperview()
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        headerView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: self.view.safeAreaInsets.top).isActive = true
+        headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
 
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
@@ -63,9 +65,11 @@ class BooksViewController: BasicViewController {
         self.collectionView.alwaysBounceVertical = true
         self.collectionView.register(BookXCollectionCell.self, forCellWithReuseIdentifier: BookXCollectionCell.reuseIdentifier)
         self.view.addSubview(self.collectionView)
-        self.collectionView.positionBelow(headerView, withOffset: Constants.paddingSmall)
-        self.collectionView.pinToBottomEdgeOfSuperview(withOffset: self.view.safeAreaInsets.bottom)
-        self.collectionView.pinToSideEdgesOfSuperview()
+        self.collectionView.translatesAutoresizingMaskIntoConstraints = false
+        self.collectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: Constants.paddingSmall).isActive = true
+        self.collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: self.view.safeAreaInsets.bottom).isActive = true
+        self.collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Constants.padding).isActive = true
+        self.collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: Constants.padding).isActive = true
     }
     
 }
